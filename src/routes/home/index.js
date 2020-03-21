@@ -1,11 +1,15 @@
-import { h } from 'preact';
-import style from './style';
+import { h } from "preact";
+import { useContext, useEffect } from "preact/hooks";
 
-const Home = () => (
-	<div class={style.home}>
-		<h1>Home</h1>
-		<p>This is the Home component.</p>
-	</div>
-);
+import { Context } from "../../context/store";
+
+function Home() {
+    const [state, dispatch] = useContext(Context);
+    useEffect(() => {
+        console.log(state, "state ");
+    }, []);
+
+    return <h1>Corona Indonesia {JSON.stringify(state)}</h1>;
+}
 
 export default Home;
