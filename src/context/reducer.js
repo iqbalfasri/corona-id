@@ -1,24 +1,31 @@
+import { FETCH_DATA_ID, FETCH_DATA_GLOBAL } from "./types";
+
 const reducer = (state, action) => {
     switch (action.type) {
-        case "SET_POSTS":
+        case FETCH_DATA_ID:
             return {
                 ...state,
-                posts: action.payload
+                dataId: action.payload
             };
-        case "ADD_POST":
+        case FETCH_DATA_GLOBAL:
             return {
                 ...state,
-                posts: state.posts.concat(action.payload)
+                dataGlobal: action.payload
             };
-        case "REMOVE_POST":
+        case "SET_LOADING":
             return {
                 ...state,
-                posts: state.posts.filter(post => post.id !== action.payload)
+                loading: false
             };
-        case "SET_ERROR":
+        case "FETCH_CLUSTER":
             return {
                 ...state,
-                error: action.payload
+                cluster: action.payload
+            };
+        case "SET_CLUSTER_JAKARTA":
+            return {
+                ...state,
+                clusterJakarta: action.payload
             };
         default:
             return state;

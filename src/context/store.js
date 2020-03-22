@@ -3,8 +3,12 @@ import { useReducer } from "preact/hooks";
 import reducer from "./reducer";
 
 const initialState = {
-    data: [],
-    error: null
+    dataId: [],
+    dataGlobal: [],
+    cluster: [],
+    clusterJakarta: null,
+    error: null,
+    loading: true
 };
 
 const Store = ({ children }) => {
